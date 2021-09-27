@@ -11,7 +11,7 @@
 
 
 
-<title>Journal</title>
+<title>Isabella’s Assignments</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -321,7 +321,7 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="Journal.html">Journal</a>
+  <a href="R-Basics.html">R Basics</a>
 </li>
 <li>
   <a href="Assignments.html">Assignments</a>
@@ -341,123 +341,193 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Journal</h1>
+<h1 class="title toc-ignore">Isabella’s Assignments</h1>
 
 </div>
 
 
-<p>IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.</p>
-<p>This is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.</p>
-<div id="my-first-post" class="section level1">
-<h1>My first post</h1>
-<p>2018 | 7 | 23 Last compiled: 2021-09-20</p>
-<p>Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left.</p>
-<div id="second-level-header" class="section level2">
-<h2>Second level header</h2>
-<p>You can add more headers by adding more hashtags. These won’t be put into the table of contents</p>
-<div id="third-level-header" class="section level3">
-<h3>third level header</h3>
-<p>Here’s an even lower level header</p>
+<p>CRIM 250: Statistics for the Social Sciences</p>
+<div id="assignment-1" class="section level1">
+<h1>Assignment 1</h1>
+<p><strong>Collaborators: Isabella Werneck. </strong></p>
+<p>Due date: September 20th</p>
+<div id="problem-1" class="section level3">
+<h3>Problem 1</h3>
+<p>Install the datasets package on the console below using <code>install.packages("datasets")</code>. Now load the library.</p>
+<pre class="r"><code>dat &lt;- USArrests</code></pre>
+<p>Load the USArrests dataset and rename it <code>dat</code>. Note that this dataset comes with R, in the package datasets, so there’s no need to load data from your computer. Why is it useful to rename the dataset?</p>
+<p>Answer: It is useful to rename the dataset to avoid disturbing the original data. It also makes it easier to locate the dataset you are currently looking at.</p>
 </div>
+<div id="problem-2" class="section level3">
+<h3>Problem 2</h3>
+<p>Use this command to make the state names into a new variable called State.</p>
+<pre class="r"><code>dat$state &lt;- tolower(rownames(USArrests))</code></pre>
+<p>This dataset has the state names as row names, so we just want to make them into a new variable. We also make them all lower case, because that will help us draw a map later - the map function requires the states to be lower case.</p>
+<p>List the variables contained in the dataset <code>USArrests</code>.</p>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;Murder&quot;   &quot;Assault&quot;  &quot;UrbanPop&quot; &quot;Rape&quot;     &quot;state&quot;</code></pre>
+<p>Answer: The variables contained in USArrests are: Murder, Assault, Rape, and UrbanPop (number of people from urban areas).</p>
 </div>
+<div id="problem-3" class="section level3">
+<h3>Problem 3</h3>
+<p>What type of variable (from the DVB chapter) is <code>Murder</code>?</p>
+<p>Answer: <code>Murder</code> is a categorical variable, since it is a form of categorizing groups of people, and it is non-numerical.</p>
+<p>What R Type of variable is it?</p>
+<p>Answer: In R, <code>Murder</code> is a character variable.</p>
 </div>
-<div id="my-second-post-note-the-order" class="section level1">
-<h1>My second post (note the order)</h1>
-<p>2018 | 7 | 23 Last compiled: 2021-09-20</p>
-<p>I’m writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom</p>
+<div id="problem-4" class="section level3">
+<h3>Problem 4</h3>
+<p>What information is contained in this dataset, in general? What do the numbers mean?</p>
+<p>Answer: The USArrests dataset shows the rate of arrests per 100,000 residents in different US states in 1973. It divides the arrests by the crime: Murder, Assault, and Rape. The dataset also includes the number of people living in urban areas.</p>
 </div>
-<div id="adding-r-stuff" class="section level1">
-<h1>Adding R stuff</h1>
-<p>So far this is just a blog where you can write in plain text and serve your writing to a webpage. One of the main purposes of this lab journal is to record your progress learning R. The reason I am asking you to use this process is because you can both make a website, and a lab journal, and learn R all in R-studio. This makes everything really convenient and in the sam place.</p>
-<p>So, let’s say you are learning how to make a histogram in R. For example, maybe you want to sample 100 numbers from a normal distribution with mean = 0, and standard deviation =1, and then you want to plot a histogram. You can do this right here by using an r code block, like this:</p>
-<pre class="r"><code>samples &lt;- rnorm(100, mean=0, sd=1)
-hist(samples)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>When you knit this R Markdown document, you will see that the histogram is printed to the page, along with the R code. This document can be set up to hide the R code in the webpage, just delete the comment (hashtag), from the cold folding option in the yaml header up top. For purposes of letting yourself see the code, and me see the code, best to keep it the way that it is. You learn all of these things and more can be customized in each R code block.</p>
+<div id="problem-5" class="section level3">
+<h3>Problem 5</h3>
+<p>Draw a histogram of <code>Murder</code> with proper labels and title.</p>
+<pre class="r"><code>hist(USArrests$Murder, main = &quot;Arrest for Murder in the US in 1973&quot;, xlab = &quot;Murder Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
-<div id="the-big-idea" class="section level1">
-<h1>The big idea</h1>
-<p>Use this lab journal to record what you do in R. This way I will be able to see what you are doing and help you along the way. You will also be creating a repository of all the things you do. You can make posts about everything. Learning specific things in R (project unrelated), and doing things for the project that we will discuss at the beginning of the Fall semester. You can get started now by fiddling around with googling things, and trying stuff out in R. I’ve placed some helpful starting links in the links page on this website</p>
+<div id="problem-6" class="section level3">
+<h3>Problem 6</h3>
+<p>Please summarize <code>Murder</code> quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?</p>
+<pre class="r"><code>summary(USArrests$Murder)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.800   4.075   7.250   7.788  11.250  17.400</code></pre>
+<p>As shown above, the mean of the data set is 7.788 and the median is 7.250. The difference between the mean and the median is that mean is the average number of arrests, while the median is the middle point of the dataset. This means that half of the dataset is under 7.250, and the other half is over 7.250. A quartile divides a dataset in four parts, each containing 25% of the data. The interquartile range (IQR) contains the middle 50% of the data, and it is determined by the upper bound of the 1st Qu. and the lower bound of the 3rd Qu. The 2nd Qu, which marks the middle of the IQR, is the dataset’s median point. R gives us the 1st Qu. and 3rd Qu. because the IQR is important for determining how skewed the distribution of the dataset is in relation to the median It is also useful in giving you an overview of where the values lie.</p>
 </div>
-<div id="what-can-you-do-right-now-by-yourself" class="section level1">
-<h1>What can you do right now by yourself?</h1>
-<p>It’s hard to learn programming when you don’t have specific problems that you are trying to solve. Everything just seems abstract.</p>
-<p>I wrote an <a href="https://crumplab.github.io/programmingforpsych/">introductory programming book that introduces R</a>, and gives some <a href="https://crumplab.github.io/programmingforpsych/programming-challenges-i-learning-the-fundamentals.html">concrete problems for you to solve</a>.</p>
-<p>To get the hang of journaling and solving the problems to learn programming, my suggestion is that you use this .Rmd file to solve the problems. It would look like this:</p>
-</div>
-<div id="problem-1" class="section level1">
-<h1>Problem 1</h1>
-<p>Do simple math with numbers, addition, subtraction, multiplication, division</p>
-<pre class="r"><code>1+2</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>2*5</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>5/3</code></pre>
-<pre><code>## [1] 1.666667</code></pre>
-<pre class="r"><code>(1+6+4)/5</code></pre>
-<pre><code>## [1] 2.2</code></pre>
-</div>
-<div id="problem-2" class="section level1">
-<h1>Problem 2</h1>
-<p>Put numbers into variables, do simple math on the variables</p>
-<pre class="r"><code>a&lt;-1
-b&lt;-2
-a+b</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>d&lt;-c(1,2,3)
-e&lt;-c(5,6,7)
-d+e</code></pre>
-<pre><code>## [1]  6  8 10</code></pre>
-<pre class="r"><code>d*e</code></pre>
-<pre><code>## [1]  5 12 21</code></pre>
-<pre class="r"><code>d/e</code></pre>
-<pre><code>## [1] 0.2000000 0.3333333 0.4285714</code></pre>
-</div>
-<div id="problem-3" class="section level1">
-<h1>Problem 3</h1>
-<p>Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.</p>
-<pre class="r"><code># for loop solution
-# i becomes the number 1 to 100 at each step of the loop
+<div id="problem-7" class="section level3">
+<h3>Problem 7</h3>
+<p>Repeat the same steps you followed for <code>Murder</code>, for the variables <code>Assault</code> and <code>Rape</code>. Now plot all three histograms together. You can do this by using the command <code>par(mfrow=c(3,1))</code> and then plotting each of the three.</p>
+<pre class="r"><code>#Histogram for assault arrests
 
+hist(USArrests$Assault, main = &quot;Arrest for Assault in the US in 1973&quot;, xlab = &quot;Assault Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
+<pre class="r"><code>#Histogram for rape arrests
 
-a &lt;- length(100) # make empty variable, set length to 100
-for (i in 1:100){
-  a[i] &lt;-i #assigns the number in i, to the ith index of a
-}
+hist(USArrests$Rape, main = &quot;Arrest for Rape in the US in 1973&quot;, xlab = &quot;Rape Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-7-2.png" width="480" /></p>
+<pre class="r"><code>#Histograms for `Murder`, `Assault`, and `Rape`
 
-print(a)</code></pre>
-<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
-##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
-##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
-<pre class="r"><code># for loop solution #2
-
-a&lt;-c() #create empty variable using combine command
-for (i in 1:100){
-  a&lt;-c(a,i) # keeps combining a with itself and the new number in i
-}
-print(a)</code></pre>
-<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
-##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
-##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
-<pre class="r"><code># seq solution
-a &lt;- seq(1,100,1) # look up help for seq using ?seq() in console
-print(a)</code></pre>
-<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
-##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
-##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
+par(mfrow=c(3,1))
+hist(USArrests$Murder, main = &quot;Arrest for Murder in the US in 1973&quot;, xlab = &quot;Murder Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)
+hist(USArrests$Assault, main = &quot;Arrest for Assault in the US in 1973&quot;, xlab = &quot;Assault Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)
+hist(USArrests$Rape, main = &quot;Arrest for Rape in the US in 1973&quot;, xlab = &quot;Rape Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-7-3.png" width="480" /></p>
+<p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
+<p>Answer: The command par is used to set graphical parameters.</p>
+<p>What can you learn from plotting the histograms together?</p>
+<p>Answer: Plotting histograms together is good for comparing results, specifically in comparing how skewed each graph is. You can tell from the graph, for example, that while the <code>rape</code> and <code>murder</code> graphs are more right-skewed, the <code>assault</code> graph is more skewed towards the right.</p>
 </div>
-<div id="replace-this-with-problem-4" class="section level1">
-<h1>Replace this with problem 4</h1>
-<p>And keep going. Try to solve the problems with different scripts that provide the same solution. Good luck, Happy coding.</p>
+<div id="problem-8" class="section level3">
+<h3>Problem 8</h3>
+<p>In the console below (not in text), type <code>install.packages("maps")</code> and press Enter, and then type <code>install.packages("ggplot2")</code> and press Enter. This will install the packages so you can load the libraries.</p>
+<p>Run this code:</p>
+<pre class="r"><code># install.packages(&quot;maps&quot;)
+# install.packages(&quot;ggplot2&quot;)
+
+library(&#39;maps&#39;) 
+library(&#39;ggplot2&#39;) 
+
+ggplot(dat, aes(map_id=state, fill=Murder)) + 
+  geom_map(map=map_data(&quot;state&quot;)) + 
+  expand_limits(x=map_data(&quot;state&quot;)$long, y=map_data(&quot;state&quot;)$lat)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-9-1.png" width="720" /></p>
+<p>What does this code do? Explain what each line is doing.</p>
+<p>Answer: This code creates a map of US States and their arrest rates for murder in 1973. The first line (<code>ggplot...</code>) establishes the variables: US States and murder rates. It also says that the color fill of the map will represent murder rates. The second line identifies the dataset for the map, and the third establishes the dimensions for the map.</p>
+<p><span class="math display">\[\\[2in]\]</span></p>
+</div>
+</div>
+<div id="assignment-2" class="section level1">
+<h1>Assignment 2</h1>
+<div id="problem-1-1" class="section level3">
+<h3>Problem 1</h3>
+<pre class="r"><code>setwd(&quot;/Users/isabellawerneck/Desktop/RStudio Data/Assignment 2&quot;)
+
+dat &lt;- read.csv(file = &#39;dat.nsduh.small.1.csv&#39;)</code></pre>
+<p>What are the dimensions of the dataset?</p>
+<pre class="r"><code>dim(dat)</code></pre>
+<pre><code>## [1] 171   7</code></pre>
+<pre class="r"><code>#View(dat)</code></pre>
+<p>Answer: There are 7 columns and 171 rows. In other words, 7 variables and 171 respondents.</p>
+</div>
+<div id="problem-2-1" class="section level3">
+<h3>Problem 2</h3>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
+## [7] &quot;irsex&quot;</code></pre>
+<p>Describe the variables in the dataset.</p>
+<p>Answer: - Age when first used marijuana/hashish (<code>mjage</code>): continuous quantitative variable - Age when first started using cigarettes everyday (<code>cigage</code>): continuous quantitative variable - Age when first used alcohol (<code>iralcage</code>): continuous quantitative variable - Age of respondents organized in categories (<code>age2</code>): categorical ordinal variable - Gender of respondents (<code>irsex</code>): categorical nominal variable - Sexual attraction organized in categories (<code>sexatract</code>): categorical nominal variable - How well the respondents speak English (<code>speakengl</code>): categorical ordinal variable</p>
+<p>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</p>
+<p>Answer: The dataset is about 171 individuals living in the Unites States and the age they began using marijuana, alcohol, and cigarettes. The data also includes the individuals’ age, gender, sexual orientation, and whether they speak English. The data was collected in 2019 by the National Survey of Drug Use and Health, a nation-wide study sponsored by the Substance Abuse and Mental Health Services Administration. The dataset includes only a small sample of the survey.</p>
+<p>The purpose of generating this data is to create a dataset representative of the US population. This kind of information is useful for addressing social and health problems in the United States, such as drug addiction.</p>
+</div>
+<div id="problem-3-age-and-gender" class="section level3">
+<h3>Problem 3: Age and Gender</h3>
+<p>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</p>
+<pre class="r"><code>hist(dat$age2, main=&quot;Age Distribution in 2019 NSDUH Survey&quot;, xlab=&quot;Age Category&quot;, ylab = &quot;Frequency&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Answer: The dataset presents the individuals’ ages through categories that encompass an age range. The ages range from 12 to 65 years old or older, categorized from 1 to 17. The most common ages, as seen above, belong to category 15, which includes ages between 35 and 49 years old.</p>
+<p>Do you think this age distribution representative of the US population? Why or why not?</p>
+<p>Answer: According to “Statista”, the age distribution of the US in 2020 is the following: 18.37% are ages 0-14, 65% are ages 15 to 64, and 16.63% are 65 and older. The age distribution in the data set is consistent with this information, since the graph is left-skewed and the most frequent ages lie between categories 12 and 16. Another website, “KFF”, shows that the biggest demographic in the US in 2019 was ages 35-45, which is also consistent with the dataset. It is important to note that since the study only considers individuals aged 12 or older, it cannot fully represent the age distribution in the US.</p>
+<p>Is the sample balanced in terms of gender? If not, are there more females or males?</p>
+<pre class="r"><code>table(dat$irsex)</code></pre>
+<pre><code>## 
+##  1  2 
+## 91 80</code></pre>
+<p>Answer: 1 represents males and 2 represents females. There are 11 more males than females, but the sample remains relatively balanced in terms of gender.</p>
+<p>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</p>
+<pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = &quot;Stacked barchart&quot;,
+        xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-15-1.png" width="672" /> Answer: I can conclude that most of the age categories are equal in gender, including categories 4, 10, 11, 12, 13, and 15. However, two of the younger categories (6 and 7) had more males, as well as the last two categories (16 and 17). These differences do not seem to form a pattern.</p>
+</div>
+<div id="problem-4-1" class="section level3">
+<h3>Problem 4</h3>
+<p>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</p>
+<pre class="r"><code>#Summary of age when first used marijuana/hashish
+summary(dat$mjage)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    7.00   14.00   16.00   15.99   17.50   35.00</code></pre>
+<pre class="r"><code>#Summary of alcohol age of first use
+summary(dat$iralcage)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    5.00   13.00   15.00   14.95   17.00   23.00</code></pre>
+<pre class="r"><code>#Summary of age when first started smoking cigarettes everyday
+summary(dat$cigage)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   10.00   15.00   17.00   17.65   19.00   50.00</code></pre>
+<p>Answer: According to the summary of the dataset, individuals tend to use alcohol earlier than cigarettes or marijuana/hashish. The mean of first-time use age for alcohol is 14.95, while the mean ages for marijuana/hashish and cigarettes are 15.99 and 17.65 respectively. The minimum, median, and max of the three are also consistent with this - alcohol has the lowest ages for all of them. This suggests that individuals tend to start using alcohol earlier than cigarettes or marijuana/hashish.</p>
+</div>
+<div id="problem-5-sexual-orientation" class="section level3">
+<h3>Problem 5: Sexual orientation</h3>
+<p>What does the distribution of sexual attraction look like? Is this what you expected?</p>
+<pre class="r"><code>counts &lt;- table(dat$sexatract)
+barplot(counts, main=&quot;Sexual Orientation of Individuals in NSDUH 2019 Survey&quot;, xlab=&quot;Sexual Orientation Categories&quot;, ylab = &quot;Frequency&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>The Sexual Orientation categories are as follows: 1: I am only attracted to the opposite sex 2: I am mostly attracted to the opposite sex 3: I am equally attracted to males and females 4: I am mostly attracted to the same sex 5: I am only attracted to the same sex 6: I am not sure 99: Legitimate skip</p>
+<p>Answer: The distribution of sexual orientation is highly skewed to the right. The first category, which represents heterosexual individuals, has the highest frequency. It represents the vast majority of participants of this survey. I would say this is close to what I imagined. Most individuals today are heterosexuals, even though the number of members of the LGBTQ+ community is increasing over the years. It is also important to note that an individual’s answer to this question might not be truthful; homophobia is still very common and present in the United States, and that might discourage individuals from answering to the survey truthfully, even if the survey is anonymous. However, even if all participants told the truth about their sexual orientation, I believe that the number of heterosexuals would still be predominant in the data.</p>
+<p>What is the distribution of sexual attraction by gender?</p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
+barplot(counts, main= &quot;Sexual Orientation vs Gender of Individuals in 2019 NSDUH Survey &quot;, xlab=&quot;Sexual Orientation Categories&quot;, ylab= &quot;Frequency&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Answer: The majority of heterosexuals are male, while there is a female predominance in categories 2 and 3, which represent individuals who are, to some extent, attracted to the opposite sex. Category 4 is split evenly between males and females and there is a male predominance in categories 5 and 6. More males also refrained from stating their sexual orientation.</p>
+</div>
+<div id="problem-6-english-speaking" class="section level3">
+<h3>Problem 6: English Speaking</h3>
+<p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</p>
+<pre class="r"><code>counts &lt;- table(dat$speakengl)
+barplot(counts, main=&quot;Self-Evaluation of English Fluency of Individuals in NSDUH 2019 Survey&quot;, xlab=&quot;English Fluency Categories&quot;, ylab = &quot;Frequency&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Answer: The grand majority of the participants responded “1”, which means they speak English very well. Categories 2 and 3, which correspond to speaking English well and not well, have significantly less people. This is what I would expect from a random sample of the US population since there are many immigrants living in the country, some of which don’t speak fluent English.</p>
+<p>Are there more English speaker females or males?</p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$speakengl)
+barplot(counts, main= &quot;Gender vs English Fluency of Individuals in 2019 NSDUH Survey &quot;, xlab=&quot;English Fluency Categories&quot;, ylab= &quot;Frequency&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Answer: There seems to be an equal number of males and females in category 1, which represents individuals who speak English very well. There are significantly more males in category 2, which represents individuals who speak English well. Lastly, category 3, which represents individuals who don’t speak English well, has significantly more females. Though there is an equal number of males and females in category 1, category 2 has more males and category 3 only has females. Therefore, there are more males who speak “good” English than females. However, it is important to keep in mind that these results come from self-evaluation rather than English-fluency tests, making the categories completely arbitrary. They might provide an inaccurate representation of the US population.</p>
+<p>Works Cited: <a href="https://www.kff.org/other/state-indicator/distribution-by-age/?currentTimeframe=0&amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D" class="uri">https://www.kff.org/other/state-indicator/distribution-by-age/?currentTimeframe=0&amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D</a> <a href="https://www.statista.com/statistics/270000/age-distribution-in-the-united-states/" class="uri">https://www.statista.com/statistics/270000/age-distribution-in-the-united-states/</a></p>
+</div>
 </div>
 
 
