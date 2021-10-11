@@ -163,7 +163,7 @@ $$\\[2in]$$
 
 ```{r}
 
-setwd("/Users/isabellawerneck/Desktop/RStudio Data/Assignment 2")
+#setwd("/Users/isabellawerneck/Desktop/RStudio Data/Assignment 2")
 
 dat <- read.csv(file = 'dat.nsduh.small.1.csv')
 

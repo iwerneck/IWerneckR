@@ -8,6 +8,8 @@ navbar:
       href: R-Basics.html
     - text: "Assignments"
       href: Assignments.html
+    - text: "Exam 1"
+      href: Exam-1.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
