@@ -404,11 +404,11 @@ __Answer: There are 47 observations. Each observation corresponds to an American
 
 #### Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?
 
-```{r, fig.width=4, fig.height=4}
+```{r}
+
 plot(dat.crime$Ed, dat.crime$R, main = "Relationship between reported crime rate and average education in American states", xlab = "Mean years of schooling times 10", ylab = "Offences reported to police per million population", cex.main=0.8, cex.lab=0.8, col="blue")
+
 ```
-
-
 
 ```{r}
 cor(dat.crime$Ed, dat.crime$R)

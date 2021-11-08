@@ -390,7 +390,7 @@ div.tocify {
 <h3>Problem 5</h3>
 <p>Draw a histogram of <code>Murder</code> with proper labels and title.</p>
 <pre class="r"><code>hist(USArrests$Murder, main = &quot;Arrest for Murder in the US in 1973&quot;, xlab = &quot;Murder Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="problem-6" class="section level3">
 <h3>Problem 6</h3>
@@ -406,18 +406,18 @@ div.tocify {
 <pre class="r"><code>#Histogram for assault arrests
 
 hist(USArrests$Assault, main = &quot;Arrest for Assault in the US in 1973&quot;, xlab = &quot;Assault Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
 <pre class="r"><code>#Histogram for rape arrests
 
 hist(USArrests$Rape, main = &quot;Arrest for Rape in the US in 1973&quot;, xlab = &quot;Rape Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-7-2.png" width="480" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-7-2.png" width="480" /></p>
 <pre class="r"><code>#Histograms for `Murder`, `Assault`, and `Rape`
 
 par(mfrow=c(3,1))
 hist(USArrests$Murder, main = &quot;Arrest for Murder in the US in 1973&quot;, xlab = &quot;Murder Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)
 hist(USArrests$Assault, main = &quot;Arrest for Assault in the US in 1973&quot;, xlab = &quot;Assault Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)
 hist(USArrests$Rape, main = &quot;Arrest for Rape in the US in 1973&quot;, xlab = &quot;Rape Arrests per 100,000 people&quot;, ylab = &quot;Frequency of US States&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-7-3.png" width="480" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-7-3.png" width="480" /></p>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
 <p>Answer: The command par is used to set graphical parameters.</p>
 <p>What can you learn from plotting the histograms together?</p>
@@ -436,7 +436,7 @@ library(&#39;ggplot2&#39;)
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
   geom_map(map=map_data(&quot;state&quot;)) + 
   expand_limits(x=map_data(&quot;state&quot;)$long, y=map_data(&quot;state&quot;)$lat)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-9-1.png" width="720" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-9-1.png" width="720" /></p>
 <p>What does this code do? Explain what each line is doing.</p>
 <p>Answer: This code creates a map of US States and their arrest rates for murder in 1973. The first line (<code>ggplot...</code>) establishes the variables: US States and murder rates. It also says that the color fill of the map will represent murder rates. The second line identifies the dataset for the map, and the third establishes the dimensions for the map.</p>
 <p><span class="math display">\[\\[2in]\]</span></p>
@@ -470,7 +470,7 @@ dat &lt;- read.csv(file = &#39;dat.nsduh.small.1.csv&#39;)</code></pre>
 <h3>Problem 3: Age and Gender</h3>
 <p>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</p>
 <pre class="r"><code>hist(dat$age2, main=&quot;Age Distribution in 2019 NSDUH Survey&quot;, xlab=&quot;Age Category&quot;, ylab = &quot;Frequency&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Answer: The dataset presents the individuals’ ages through categories that encompass an age range. The ages range from 12 to 65 years old or older, categorized from 1 to 17. The most common ages, as seen above, belong to category 15, which includes ages between 35 and 49 years old.</p>
 <p>Do you think this age distribution representative of the US population? Why or why not?</p>
 <p>Answer: According to “Statista”, the age distribution of the US in 2020 is the following: 18.37% are ages 0-14, 65% are ages 15 to 64, and 16.63% are 65 and older. The age distribution in the data set is consistent with this information, since the graph is left-skewed and the most frequent ages lie between categories 12 and 16. Another website, “KFF”, shows that the biggest demographic in the US in 2019 was ages 35-45, which is also consistent with the dataset. It is important to note that since the study only considers individuals aged 12 or older, it cannot fully represent the age distribution in the US.</p>
@@ -487,7 +487,7 @@ barplot(tab.agesex,
         xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
         legend.text = rownames(tab.agesex),
         beside = FALSE) # Stacked bars (default))</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-15-1.png" width="672" /> Answer: I can conclude that most of the age categories are equal in gender, including categories 4, 10, 11, 12, 13, and 15. However, two of the younger categories (6 and 7) had more males, as well as the last two categories (16 and 17). These differences do not seem to form a pattern.</p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-15-1.png" width="672" /> Answer: I can conclude that most of the age categories are equal in gender, including categories 4, 10, 11, 12, 13, and 15. However, two of the younger categories (6 and 7) had more males, as well as the last two categories (16 and 17). These differences do not seem to form a pattern.</p>
 </div>
 <div id="problem-4-1" class="section level3">
 <h3>Problem 4</h3>
@@ -511,13 +511,13 @@ summary(dat$cigage)</code></pre>
 <p>What does the distribution of sexual attraction look like? Is this what you expected?</p>
 <pre class="r"><code>counts &lt;- table(dat$sexatract)
 barplot(counts, main=&quot;Sexual Orientation of Individuals in NSDUH 2019 Survey&quot;, xlab=&quot;Sexual Orientation Categories&quot;, ylab = &quot;Frequency&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>The Sexual Orientation categories are as follows: 1: I am only attracted to the opposite sex 2: I am mostly attracted to the opposite sex 3: I am equally attracted to males and females 4: I am mostly attracted to the same sex 5: I am only attracted to the same sex 6: I am not sure 99: Legitimate skip</p>
 <p>Answer: The distribution of sexual orientation is highly skewed to the right. The first category, which represents heterosexual individuals, has the highest frequency. It represents the vast majority of participants of this survey. I would say this is close to what I imagined. Most individuals today are heterosexuals, even though the number of members of the LGBTQ+ community is increasing over the years. It is also important to note that an individual’s answer to this question might not be truthful; homophobia is still very common and present in the United States, and that might discourage individuals from answering to the survey truthfully, even if the survey is anonymous. However, even if all participants told the truth about their sexual orientation, I believe that the number of heterosexuals would still be predominant in the data.</p>
 <p>What is the distribution of sexual attraction by gender?</p>
 <pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
 barplot(counts, main= &quot;Sexual Orientation vs Gender of Individuals in 2019 NSDUH Survey &quot;, xlab=&quot;Sexual Orientation Categories&quot;, ylab= &quot;Frequency&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Answer: The majority of heterosexuals are male, while there is a female predominance in categories 2 and 3, which represent individuals who are, to some extent, attracted to the opposite sex. Category 4 is split evenly between males and females and there is a male predominance in categories 5 and 6. More males also refrained from stating their sexual orientation.</p>
 </div>
 <div id="problem-6-english-speaking" class="section level3">
@@ -525,12 +525,12 @@ barplot(counts, main= &quot;Sexual Orientation vs Gender of Individuals in 2019 
 <p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</p>
 <pre class="r"><code>counts &lt;- table(dat$speakengl)
 barplot(counts, main=&quot;Self-Evaluation of English Fluency of Individuals in NSDUH 2019 Survey&quot;, xlab=&quot;English Fluency Categories&quot;, ylab = &quot;Frequency&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Answer: The grand majority of the participants responded “1”, which means they speak English very well. Categories 2 and 3, which correspond to speaking English well and not well, have significantly less people. This is what I would expect from a random sample of the US population since there are many immigrants living in the country, some of which don’t speak fluent English.</p>
 <p>Are there more English speaker females or males?</p>
 <pre class="r"><code>counts &lt;- table(dat$irsex, dat$speakengl)
 barplot(counts, main= &quot;Gender vs English Fluency of Individuals in 2019 NSDUH Survey &quot;, xlab=&quot;English Fluency Categories&quot;, ylab= &quot;Frequency&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>Answer: There seems to be an equal number of males and females in category 1, which represents individuals who speak English very well. There are significantly more males in category 2, which represents individuals who speak English well. Lastly, category 3, which represents individuals who don’t speak English well, has significantly more females. Though there is an equal number of males and females in category 1, category 2 has more males and category 3 only has females. Therefore, there are more males who speak “good” English than females. However, it is important to keep in mind that these results come from self-evaluation rather than English-fluency tests, making the categories completely arbitrary. They might provide an inaccurate representation of the US population.</p>
 <p>Works Cited: <a href="https://www.kff.org/other/state-indicator/distribution-by-age/?currentTimeframe=0&amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D" class="uri">https://www.kff.org/other/state-indicator/distribution-by-age/?currentTimeframe=0&amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D</a> <a href="https://www.statista.com/statistics/270000/age-distribution-in-the-united-states/" class="uri">https://www.statista.com/statistics/270000/age-distribution-in-the-united-states/</a></p>
 </div>
@@ -577,7 +577,7 @@ dat.crime &lt;- read_delim(&quot;crime_simple.txt&quot;, delim = &quot;\t&quot;)
 <div id="draw-a-scatterplot-of-the-two-variables.-calculate-the-correlation-between-the-two-variables.-can-you-come-up-with-an-explanation-for-this-relationship" class="section level4">
 <h4>Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?</h4>
 <pre class="r"><code>plot(dat.crime$Ed, dat.crime$R, main = &quot;Relationship between reported crime rate and average education in American states&quot;, xlab = &quot;Mean years of schooling times 10&quot;, ylab = &quot;Offences reported to police per million population&quot;, cex.main=0.8, cex.lab=0.8, col=&quot;blue&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-22-1.png" width="384" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <pre class="r"><code>cor(dat.crime$Ed, dat.crime$R)</code></pre>
 <pre><code>## [1] 0.3228349</code></pre>
 <p><strong>Answer: There is a low positive correlation between the variables since the number is lower than 0.95 and a positive number. Though it is difficult to draw conclusions on this scatterplot from solely these results, I would guess that it means that more educated people are more likely to report a crime.</strong></p>
@@ -626,20 +626,20 @@ kable(summary(crime.lm)$coef, digits = 2)</code></pre>
 <p><strong>1. Linearity assumption</strong></p>
 <pre class="r"><code>plot(dat.crime$Ed, crime.lm$residuals, ylim = c(-15, 15), main = &quot;Residuals vs. X&quot;, ylab = &quot;Residuals&quot;, xlab = &quot;X, Mean years of schooling times 10&quot;, col=&quot;red&quot;)
 abline(h=0, lty=&quot;dashed&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p><strong>Answer: The linearity assumption is satisfied because there is no pattern in the scatterplot of the residuals vs X, so the scatterplot of X and Y is linear.</strong></p>
 <p><strong>2. Independence assumption</strong></p>
 <pre class="r"><code>plot(dat.crime$Ed, crime.lm$residuals, ylim = c(-15, 15), main = &quot;Residuals vs. X&quot;, ylab = &quot;Residuals&quot;, xlab = &quot;X, Mean years of schooling times 10&quot;, col=&quot;red&quot;)
 abline(h=0, lty=&quot;dashed&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p><strong>Answer: The independence assumption is satisfied since there are no irregularities or clumps in the scatterplot above, which means that the errors are independent from each other.</strong></p>
 <p><strong>3. Equal variance assumption</strong></p>
 <pre class="r"><code>plot(crime.lm, which = 3)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p><strong>Answer: The scale-location scatterplot does not show significant trends, which means that the residuals have constant variance and the assumption is satisfied.</strong></p>
 <p><strong>4. Normal population assumption</strong></p>
 <pre class="r"><code>plot(crime.lm, which = 2, col=&quot;blue&quot;)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="Assignment-3_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p><strong>Answer: The scatterplot is light-tailed, which means that it is not evenly distributed.</strong></p>
 </div>
 </div>
